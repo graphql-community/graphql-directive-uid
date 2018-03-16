@@ -1,0 +1,20 @@
+{
+  "name": "uid-example",
+  "version": "0.1.0",
+  "description": "example usage of uid directive",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon dev.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "apollo-server-express": "^1.3.2",
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^2.23.1",
+    "jest": "^22.4.2"
+  }
+}
