@@ -21,7 +21,7 @@ describe('Person query', () => {
     const response = await graphql(schema, query);
     expect(response.data.persons).toHaveLength(4);
   });
-  it('Check object shape', async () => {
+  it('Check recived object shape', async () => {
     const response = await graphql(schema, query);
 
     expect(response.data.persons[0]).toHaveProperty('uid');

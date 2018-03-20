@@ -1,6 +1,6 @@
-import { GraphQLID } from 'graphql';
-import { SchemaDirectiveVisitor } from 'graphql-tools';
-import { createHash } from 'crypto';
+const { GraphQLID } = require('graphql');
+const { SchemaDirectiveVisitor } = require('graphql-tools');
+const { createHash } = require('crypto');
 
 class UniqueIdDirective extends SchemaDirectiveVisitor {
   visitObject(type) {
@@ -33,4 +33,4 @@ class UniqueIdDirective extends SchemaDirectiveVisitor {
   }
 }
 
-export default UniqueIdDirective;
+module.exports = UniqueIdDirective;

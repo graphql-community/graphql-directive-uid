@@ -13,5 +13,5 @@ app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 app.listen(PORT, () => {
-  log(`\nServer started at: http://${HOST}:${PORT}/graphiql`);
+  log(`Server started at: http://${HOST}:${PORT}/graphiql`);
 });

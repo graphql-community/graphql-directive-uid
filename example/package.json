@@ -1,7 +1,7 @@
 {
   "name": "uid-example",
   "version": "0.1.0",
-  "description": "example usage of uid directive",
+  "description": "Example usage of uid directive",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -15,6 +15,16 @@
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "graphql-tools": "^2.23.1",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "nodemon": "^1.17.2",
+    "graphql-directive-uid": "file:../"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-inline-import": "^2.0.6",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0"
   }
 }
