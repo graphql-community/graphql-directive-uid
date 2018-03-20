@@ -1,4 +1,4 @@
-type Person {
+type Person @uniqueID(from: ["name", "personID"]) {
   personId: Int
   name: String
 }

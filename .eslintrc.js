@@ -9,6 +9,7 @@ module.exports = {
   plugins: ['jest', 'prettier'],
   rules: {
     'import/extensions': 0,
+    'class-methods-use-this': 0,
     'import/prefer-default-export': 0,
     'no-class-assign': 0,
     'no-underscore-dangle': 0,
@@ -21,10 +22,7 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: ['**/*.test.js', '**/__tests__/**', 'dev.js'] },
-    ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.js', '**/__tests__/**', 'dev.js'] }],
   },
   settings: {
     'import/resolver': {

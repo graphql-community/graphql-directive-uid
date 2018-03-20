@@ -12,7 +12,7 @@ const data = [
 const resolvers = {
   Query: {
     persons: () => {
-      log('Return persons');
+      log('Return persons list%o', data);
 
       return data;
     },

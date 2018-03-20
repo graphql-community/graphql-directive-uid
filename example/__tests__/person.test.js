@@ -1,16 +1,10 @@
 import { graphql } from 'graphql';
-import { makeExecutableSchema } from 'graphql-tools';
-import typeDefs from '../src/schema.graphql';
-import resolvers from '../src/resolvers';
-
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
+import schema from '../src/schema';
 
 const query = `
   query persons {
     persons {
+      uid
       personId
       name
     }
@@ -29,7 +23,8 @@ describe('Person query', () => {
   });
   it('Check object shape', async () => {
     const response = await graphql(schema, query);
-    expect(response.data.persons[0]).toHaveProperty('personId');
+
+    expect(response.data.persons[0]).toHaveProperty('uid');
     expect(response.data.persons[0]).toHaveProperty('personId');
     expect(response.data.persons[0]).toHaveProperty('name');
   });
