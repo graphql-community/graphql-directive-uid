@@ -4,6 +4,7 @@ import schema from '../src/schema';
 const query = `
   query persons {
     persons {
+      __typename
       uid
       personId
       name
@@ -12,7 +13,7 @@ const query = `
 `;
 
 describe('Person query', () => {
-  it('Check if query return array', async () => {
+  it('check if query returns an array', async () => {
     const response = await graphql(schema, query);
     expect(Array.isArray(response.data.persons)).toBeTruthy();
   });
@@ -24,8 +25,11 @@ describe('Person query', () => {
   it('Check recived object shape', async () => {
     const response = await graphql(schema, query);
 
-    expect(response.data.persons[0]).toHaveProperty('uid');
-    expect(response.data.persons[0]).toHaveProperty('personId');
-    expect(response.data.persons[0]).toHaveProperty('name');
+    expect(response.data.persons[0]).toMatchObject({
+      uid: expect.any(String),
+      personId: expect.any(Number),
+      name: expect.any(String),
+      __typename: expect.any(String),
+    });
   });
 });

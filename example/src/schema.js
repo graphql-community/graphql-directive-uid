@@ -7,6 +7,6 @@ export default makeExecutableSchema({
   typeDefs,
   resolvers,
   schemaDirectives: {
-    uniqueID: graphqlDirectiveUid,
+    uid: graphqlDirectiveUid,
   },
 });
