@@ -2,10 +2,14 @@
   "name": "graphql-directive-uid",
   "version": "0.1.0",
   "description": "Graphql direvtive provides uid",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:graphql-community/graphql-directive-uid.git",
   "author": "Czysty <lukasz.czyszczonik@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "babel index.js -d dist",
+    "postinstall": "yarn build"
+  },
   "peerDependencies": {
     "graphql": "^0.13.2",
     "graphql-tools": "^2.23.1"
