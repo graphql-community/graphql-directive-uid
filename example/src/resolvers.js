@@ -1,7 +1,3 @@
-import debug from 'debug';
-
-const log = debug('example');
-
 const data = [
   { personId: 1, name: 'Kevin Odling' },
   { personId: 2, name: 'Farah Bennett' },
@@ -11,11 +7,7 @@ const data = [
 
 const resolvers = {
   Query: {
-    persons: () => {
-      log('Return persons list%o', data);
-
-      return data;
-    },
+    persons: () => data,
   },
 };
 
