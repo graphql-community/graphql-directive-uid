@@ -13,15 +13,6 @@ const query = `
 `;
 
 describe('Person query', () => {
-  it('check if query returns an array', async () => {
-    const response = await graphql(schema, query);
-    expect(Array.isArray(response.data.persons)).toBeTruthy();
-  });
-
-  it('Check array length', async () => {
-    const response = await graphql(schema, query);
-    expect(response.data.persons).toHaveLength(4);
-  });
   it('Check recived object shape', async () => {
     const response = await graphql(schema, query);
 
