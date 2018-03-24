@@ -15,5 +15,13 @@
     "graphql": "^0.13.2",
     "graphql-tools": "^2.23.1",
     "graphql-directive-uid": "file:../"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-inline-import": "^2.0.6",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0"
   }
 }
