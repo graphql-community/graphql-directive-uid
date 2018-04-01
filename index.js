@@ -1,10 +1,29 @@
-import { GraphQLID } from 'graphql';
+import {
+  GraphQLID,
+  GraphQLList,
+  GraphQLString,
+  GraphQLInt,
+  DirectiveLocation,
+  GraphQLDirective,
+} from 'graphql';
 import { SchemaDirectiveVisitor } from 'graphql-tools';
 import { createHash } from 'crypto';
 
 class UniqueIdDirective extends SchemaDirectiveVisitor {
+  static getDirectiveDeclaration(directiveName, schema) {
+    return new GraphQLDirective({
+      name: directiveName,
+      description: 'Generates unique ID based on specifics fields',
+      locations: [DirectiveLocation.OBJECT],
+      args: {
+        from: {
+          type: new GraphQLList(GraphQLString, GraphQLInt),
+        },
+      },
+    });
+  }
+
   visitObject(type) {
-    // @TODO: implement directive declaratin
     const { name = 'uid', from } = this.args;
 
     const fields = type.getFields();
