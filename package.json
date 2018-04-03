@@ -1,6 +1,6 @@
 {
   "name": "graphql-directive-uid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Graphql direvtive provides uid",
   "main": "dist/index.js",
   "repository": "git@github.com:graphql-community/graphql-directive-uid.git",
