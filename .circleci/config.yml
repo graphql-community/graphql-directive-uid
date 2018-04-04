@@ -20,11 +20,11 @@ jobs:
           at: ~/graphql-directive-uid
       - restore_cache:
           keys:
-            - dependencies-{{ checksum "package.json" }}
+            - dependencies-{{ checksum "yarn.lock" }}
             - dependencies-
       - run: yarn install --frozen-lockfile
       - save_cache:
-          key: dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ checksum "yarn.lock" }}
           paths: node_modules
       - persist_to_workspace:
           root: .
@@ -50,7 +50,7 @@ jobs:
     docker:
       - image: circleci/node:6
     setps:
-       - attach_workspace:
+      - attach_workspace:
           at: ~/graphql-directive-uid
       - run: |
           npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
