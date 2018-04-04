@@ -1,0 +1,61 @@
+version: 2
+
+test-defaults: &test-defaults
+  working_directory: ~/graphql-directive-uid
+  steps:
+    - attach_workspace:
+        at: ~/graphql-directive-uid
+    - run: |
+        yarn lint
+        yarn test
+
+jobs:
+  install-dependencies:
+    working_directory: ~/graphql-directive-uid
+    docker:
+      - image: circleci/node:6
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/graphql-directive-uid
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+            - dependencies-
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths: node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+  
+  lint-and-test-node-6:
+    <<: *test-defaults
+    docker:
+      - image: circleci/node:4
+  
+  lint-and-test-node-8:
+    <<: *test-defaults
+    docker:
+      - image: circleci/node:8
+
+  lint-and-test-node-9:
+    <<: *test-defaults
+    docker:
+      - image: circleci/node:9
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - install-dependencies
+      - lint-and-test-node-6:
+          requires:
+            - install-dependencies
+      - lint-and-test-node-8:
+          requires:
+            - install-dependencies
+      - lint-and-test-node-9:
+          requires:
+            - install-dependencies
