@@ -33,7 +33,7 @@ jobs:
   lint-and-test-node-6:
     <<: *test-defaults
     docker:
-      - image: circleci/node:4
+      - image: circleci/node:6
   
   lint-and-test-node-8:
     <<: *test-defaults
