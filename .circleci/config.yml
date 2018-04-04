@@ -49,7 +49,7 @@ jobs:
     working_directory: ~/graphql-directive-uid
     docker:
       - image: circleci/node:6
-    setps:
+    steps:
       - attach_workspace:
           at: ~/graphql-directive-uid
       - run: |
