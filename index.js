@@ -10,7 +10,7 @@ import { SchemaDirectiveVisitor } from 'graphql-tools';
 import { createHash } from 'crypto';
 
 class UniqueIdDirective extends SchemaDirectiveVisitor {
-  static getDirectiveDeclaration(directiveName = 'uid', schema) {
+  static getDirectiveDeclaration(directiveName = 'uid') {
     return new GraphQLDirective({
       name: directiveName,
       description: 'Generates unique ID based on specifics fields',

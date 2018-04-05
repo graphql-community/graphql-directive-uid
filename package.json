@@ -9,7 +9,8 @@
   "scripts": {
     "build": "babel index.js -d dist",
     "test": "jest",
-    "postinstall": "yarn build"
+    "lint": "eslint .",
+    "prepare": "yarn build"
   },
   "peerDependencies": {
     "graphql": "^0.13.2",
