@@ -1,7 +1,7 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import schema from './schema';
+const express = require('express');
+const bodyParser = require('body-parser');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+const schema = require('./schema');
 
 const PORT = process.env.PORT || 3003;
 const HOST = process.env.HOST || 'localhost';

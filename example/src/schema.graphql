@@ -1,8 +1,0 @@
-type Person @uid(from: ["personId", "name"]) {
-  personId: Int
-  name: String
-}
-
-type Query {
-  persons: [Person]
-}

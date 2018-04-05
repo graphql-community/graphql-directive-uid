@@ -1,13 +1,13 @@
-import {
+const {
   GraphQLID,
   GraphQLList,
   GraphQLString,
   GraphQLInt,
   DirectiveLocation,
   GraphQLDirective,
-} from 'graphql';
-import { SchemaDirectiveVisitor } from 'graphql-tools';
-import { createHash } from 'crypto';
+} = require('graphql');
+const { SchemaDirectiveVisitor } = require('graphql-tools');
+const { createHash } = require('crypto');
 
 class UniqueIdDirective extends SchemaDirectiveVisitor {
   static getDirectiveDeclaration(directiveName = 'uid') {
@@ -37,6 +37,7 @@ class UniqueIdDirective extends SchemaDirectiveVisitor {
       type: GraphQLID,
       description: 'Unique ID',
       args: [],
+      isDeprecated: false,
       resolve(object) {
         const hash = createHash('sha1');
 
@@ -52,4 +53,4 @@ class UniqueIdDirective extends SchemaDirectiveVisitor {
   }
 }
 
-export default UniqueIdDirective;
+module.exports = UniqueIdDirective;
