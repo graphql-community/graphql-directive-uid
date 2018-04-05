@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon example/index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "graphql": "^0.13.2",
